@@ -1,31 +1,23 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+set up an account in google cloud platform
+https://console.cloud.google.com/
 
-Welcome USER_NAME,
+got to APIs and services -> library and get google drive API with json key
+then get google sheets
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+Move the downloaded json key file into the gitpod files
+rename it cred.json
 
-## Reminders
+set cred.json in .gitignore so it won't get pushed into github
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+install dependencies google-auth
+https://google-auth.readthedocs.io/en/master/
+by typing: "pip3 install gspread google-auth" in the terminal
 
-## Creating the Heroku app
+Go to run.py ( where all the python will be coded)
+import gspread from google.oauth2.service_account import Credentials
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+import gspread = import the entire gspread library ( so we can access any function, class or method)
 
-1. `heroku/python`
-2. `heroku/nodejs`
+import Credentials = imports the credentials class which is part of the service_account  function from the Google auth library. As we only need this class for our project, there is no need to import the entire library here.
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
-
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
-
-Connect your GitHub repository and deploy as normal.
-
-## Constraints
-
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
-
------
-Happy coding!
+add scope: (this specifies what the user have access to)
