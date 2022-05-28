@@ -21,3 +21,7 @@ import gspread = import the entire gspread library ( so we can access any functi
 import Credentials = imports the credentials class which is part of the service_account  function from the Google auth library. As we only need this class for our project, there is no need to import the entire library here.
 
 add scope: (this specifies what the user have access to)
+
+
+Credits
+https://pypi.org/project/termcolor/

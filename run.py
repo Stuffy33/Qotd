@@ -1,5 +1,4 @@
 import gspread
-
 from google.oauth2.service_account import Credentials
 from termcolor import colored
 
@@ -16,10 +15,11 @@ SCOPE = [
 CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
-SHEET = GSPREAD_CLIENT.open('Quotes')
+SHEET = GSPREAD_CLIENT.open('Quotes_gs')
 
 def update_worksheet(value, worksheet):
     """Function that updates the worksheet."""
+    
     """
     Credits Code Institutes Walkthru project - Love Sandwiches
     https://github.com/Code-Institute-Solutions/love-sandwiches-p4-sourcecode
@@ -33,7 +33,15 @@ def intro_quotes():
     print(colored(("Get inspired by a random quote."), "magenta"))
     print(colored(("Also add your own quotes to our list.\n"), "magenta"))
     print(colored(("Enter 1 to recive a random quote."), "magenta"))
-    print(colored(("Enter 2 to add one of your own favorite quotes to our list."), "magenta"))
+    print(colored(("Enter 2 to add one of your own favorite quotes to our list.\n"), "magenta"))
+
+
+
+
+
+
+
+
 
 def main():
     """Start functions"""
