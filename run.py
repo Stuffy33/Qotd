@@ -1,4 +1,5 @@
 import gspread
+import random
 from google.oauth2.service_account import Credentials
 from termcolor import colored
 
@@ -36,6 +37,23 @@ def intro_quotes():
     print(colored(("Enter 2 to add one of your own favorite quotes to our list.\n"), "magenta"))
 
 
+def user_option():
+    """function that choose if the user wants to get a quote or add a new quote"""
+    choose = input("\nPlease, make your choice press (1 or 2)\n")
+    if choose == "1":
+        display_random_quote()
+    elif choose == "2":
+        add_quote()
+    else:
+        print(colored(("Try again, Choose either the number (1 or 2)\n"), "red"))
+    return user_option()
+
+def display_random_quote():
+    """Function that displays a random quote from the googlesheet, if nr 1 has been clicked"""
+    quote_list = SHEET.worksheet("Quotes").col_values(1)
+    display_quote = random.choice(quote_list)
+    print(colored((display_quote), "cyan"))
+
 
 
 
@@ -46,5 +64,5 @@ def intro_quotes():
 def main():
     """Start functions"""
     intro_quotes()
-
+    user_option()
 main()
