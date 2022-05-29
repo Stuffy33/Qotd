@@ -1,3 +1,4 @@
+import sys
 import gspread
 import random
 from google.oauth2.service_account import Credentials
@@ -18,16 +19,10 @@ CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('Quotes_gs')
+QUOTE_SHEET = SHEET.worksheet("Quotes")
 
 def update_worksheet(value, worksheet):
     """Function that updates the worksheet."""
-    
-    """
-    Credits Code Institutes Walkthru project - Love Sandwiches
-    https://github.com/Code-Institute-Solutions/love-sandwiches-p4-sourcecode
-    """
-    worksheet_to_update = SHEET.worksheet(worksheet)
-    worksheet_to_update.append_row(value)
 
 def intro_quotes():
     """Introduction how to how use the app"""
@@ -40,31 +35,37 @@ def intro_quotes():
 
 def user_option():
     """function that choose if the user wants to get a quote or add a new quote"""
-    choose = input("\nPlease, make your choice press (1 or 2)\n")
+    choose = input("\nPlease, make your choice press (1, 2 or 3)\n")
     if choose == "1":
         display_random_quote()
     elif choose == "2":
         add_quote()
+    elif choose == "3":
+        sys.exit()
     else:
-        print(colored(("Try again, Choose either the number (1 or 2)\n"), "red"))
+        print(colored(("Try again, Choose either the number (1, 2 or 3)\n"), "red"))
     return user_option()
 
 def display_random_quote():
     """Function that displays a random quote from the googlesheet, if nr 1 has been clicked"""
-    quotes = SHEET.worksheet("Quotes").get_all_values()
-    quote_list = SHEET.worksheet("Quotes").row_values(random.randint(0, len(quotes[0])))
-    display_quote = random.choice(quote_list)
-    print(f"{quote_list[0]}\n{quote_list[0]}")
+    quotes = QUOTE_SHEET.get_all_values()
+#    quote_list = QUOTE_SHEET.row_values(random.randrange(len(quotes[0])))
+    #quote_list = quotes(random.randrange(len(quotes[0])))
+    display_quote = random.choice(quotes)
+    print(f"{display_quote[0]}\n{display_quote[1]}")
 
-def submit_quote():
+def add_quote():
     """ With a nested function will the user be able to add a quote of their own """
-    def  sumbiter_of_joke():
-        """function that submits the quote"""
-        
-
-
+    input_quote = input("please enter your quote: ")
+    while len(input_quote) < 15:
+        print("hey u need a longer quote!")
+        input_quote = input("please enter your quote: ")
+    input_name = input("please enter your name: ")
+    update_list = [f'"{input_quote}"', input_name]
+    QUOTE_SHEET.append_row(update_list)
 
 def main():
     """Start functions"""
     intro_quotes()
     user_option()
+main()
