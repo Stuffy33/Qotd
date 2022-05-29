@@ -2,6 +2,7 @@ import gspread
 import random
 from google.oauth2.service_account import Credentials
 from termcolor import colored
+from pprint import pprint
 
 
 # The scope was inspired by and borrowed from
@@ -50,14 +51,16 @@ def user_option():
 
 def display_random_quote():
     """Function that displays a random quote from the googlesheet, if nr 1 has been clicked"""
-    quote_list = SHEET.worksheet("Quotes").col_values(1)
+    quotes = SHEET.worksheet("Quotes").get_all_values()
+    quote_list = SHEET.worksheet("Quotes").row_values(random.randint(0, len(quotes[0])))
     display_quote = random.choice(quote_list)
-    print(colored((display_quote), "cyan"))
+    print(f"{quote_list[0]}\n{quote_list[0]}")
 
-
-
-
-
+def submit_quote():
+    """ With a nested function will the user be able to add a quote of their own """
+    def  sumbiter_of_joke():
+        """function that submits the quote"""
+        
 
 
 
@@ -65,4 +68,3 @@ def main():
     """Start functions"""
     intro_quotes()
     user_option()
-main()

@@ -25,3 +25,8 @@ add scope: (this specifies what the user have access to)
 
 Credits
 https://pypi.org/project/termcolor/
+
+
+had a bug with typing the the googlesheet name instead of the page name.
+solved it by watching a tutorial where i saw my mistake.
+https://www.youtube.com/watch?v=bu5wXjz2KvU
