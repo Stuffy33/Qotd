@@ -3,7 +3,6 @@ import gspread
 import random
 from google.oauth2.service_account import Credentials
 from termcolor import colored
-from pprint import pprint
 
 
 # The scope was inspired by and borrowed from
@@ -50,7 +49,6 @@ def display_random_quote():
     """Function that displays a random quote from the googlesheet, if nr 1 has been clicked"""
     quotes = QUOTE_SHEET.get_all_values()
 #    quote_list = QUOTE_SHEET.row_values(random.randrange(len(quotes[0])))
-    #quote_list = quotes(random.randrange(len(quotes[0])))
     display_quote = random.choice(quotes)
     print(f"{display_quote[0]}\n{display_quote[1]}")
 
@@ -61,7 +59,7 @@ def add_quote():
         print("hey u need a longer quote!")
         input_quote = input("please enter your quote: ")
     input_name = input("please enter your name: ")
-    update_list = [f'"{input_quote}"', input_name]
+    update_list = [f'"{input_quote}"', f'-{input_name}']
     QUOTE_SHEET.append_row(update_list)
 
 def main():
