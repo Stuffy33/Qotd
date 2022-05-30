@@ -30,3 +30,5 @@ https://pypi.org/project/termcolor/
 had a bug with typing the the googlesheet name instead of the page name.
 solved it by watching a tutorial where i saw my mistake.
 https://www.youtube.com/watch?v=bu5wXjz2KvU
+
+#    quote_list = QUOTE_SHEET.row_values(random.randrange(len(quotes[0])))
