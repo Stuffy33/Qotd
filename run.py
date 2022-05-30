@@ -59,8 +59,11 @@ def add_quote():
         print("hey u need a longer quote!")
         input_quote = input("please enter your quote: ")
     input_name = input("please enter your name: ")
-    update_list = [f'"{input_quote}"', f'-{input_name}']
+    while len(input_name) < 1:
+        input_name = "Unknown"
+    update_list = [f'"{input_quote}"', f'- {input_name}']
     QUOTE_SHEET.append_row(update_list)
+    
 
 def main():
     """Start functions"""
