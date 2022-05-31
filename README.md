@@ -10,7 +10,7 @@ Target audience: Individuals that needs more food for thought during the day.
 
 Required technologies for this project: Python
 
-A live version of this project can be found at this url: 
+A live version of this project can be found at this url: https://git.heroku.com/qotd12.git
 
 # Table of Content
 
@@ -42,7 +42,7 @@ A live version of this project can be found at this url:
 This application is ment for:
 
  - Individuals that wants to read intressting quotes that makes the gear in their head turn.
- - Individuals who wants to share their own quotes.q
+ - Individuals who wants to share their own quotes.
 
 ### User Stories
 
@@ -210,7 +210,7 @@ Deploying your app to heroku
  - command: git push origin main
  - command: git push heroku main
 
-After those steps were taken the application was deployed at the following link: https://dad-jokes-1.herokuapp.com/
+After those steps were taken the application was deployed at the following link: https://git.heroku.com/qotd12.git
 
 ## Content 
 
@@ -230,7 +230,7 @@ After those steps were taken the application was deployed at the following link:
 
  - [Martina Terlevic](https://www.linkedin.com/in/martinaterlevic/) My mentor at Code Institute.
 
- - [Angry olive] My friend
+ - [Angry olive] (My friend)
 
  -[Pelikantapeten] student at code institute, Borrowed his readme as a template.
 
