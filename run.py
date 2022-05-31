@@ -19,6 +19,7 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('Quotes_gs')
 QUOTE_SHEET = SHEET.worksheet("Quotes")
 
+
 def intro_quotes():
     """
     Introduction how to how use the app
@@ -27,14 +28,14 @@ def intro_quotes():
     print(colored(("Get inspired by a random quote."), "yellow"))
     print(colored(("or add your own quotes to our list.\n"), "yellow"))
     print(colored(("Click 1 then Enter to recive a random quote."), "magenta"))
-    print(colored(("Click 2 then Enter to add one of your own favorite quotes to our list."), "magenta"))
+    print(colored(("Click 2 then Enter to add your own quotes to our list."), "magenta"))
     print(colored(("Click 3 then Enter to end the program."), "magenta"))
 
 
 def user_option():
     """
     function that choose if the user wants to:
-        1) get a quote 
+        1) get a quote
         2) add a new quote
         3) Exit the program
     """
@@ -49,6 +50,7 @@ def user_option():
         print(colored(("Try again, Choose either the number (1, 2 or 3)\n"), "red"))
     return user_option()
 
+
 def display_random_quote():
     """
     Function that displays a random quote taken from our googlesheet list, if nr 1 has been clicked
@@ -57,6 +59,7 @@ def display_random_quote():
     display_quote = random.choice(quotes)
     saythis = (f"{display_quote[0]}\n{display_quote[1]}")
     print(colored((saythis), "green"))
+
 
 def add_quote():
     """
@@ -73,7 +76,8 @@ def add_quote():
     update_list = [f'"{input_quote}"', f'- {input_name}']
     QUOTE_SHEET.append_row(update_list)
     print(colored(("\nThank you! \nYour quote have been added to our list"), "green"))
-    
+
+
 def main():
     """Start functions"""
     intro_quotes()
