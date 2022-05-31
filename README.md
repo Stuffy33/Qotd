@@ -232,4 +232,6 @@ After those steps were taken the application was deployed at the following link:
 
  - [Angry olive] My friend
 
+ -[Pelikantapeten] student at code institute, Borrowed his readme as a template.
+
 [Back to top](#Qotd)
